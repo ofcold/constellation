@@ -133,13 +133,13 @@ abstract class AbstractConstellation
 	 *
 	 * @param  string $locale
 	 *
-	 * @return string
+	 * @return string|null
 	 */
-	public function localized(string $locale = 'zh-CN'): string
+	public function localized(string $locale = 'zh-CN'): ?string
 	{
 		$constellations = $this->locales[$locale] ?? $this->locales['zh-CN'];
 
-		return $constellations[ucfirst($this->name())];
+		return $constellations[ucfirst($this->name())] ?? ucfirst($this->name());
 	}
 
 	/**
