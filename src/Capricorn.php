@@ -11,28 +11,28 @@ class Capricorn extends AbstractConstellation
 	 *
 	 * @var string
 	 */
-	public $name = 'capricorn';
+	public string $name = 'capricorn';
 
 	/**
 	 * HTML code of zodiac sign
 	 *
 	 * @var string
 	 */
-	public $html = '&#9809;';
+	public string $html = '&#9809;';
 
 	/**
 	 * Start day of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $start = ['month' => '12', 'day' => '22'];
+	public array $start = ['month' => '12', 'day' => '22'];
 
 	/**
 	 * End day of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $end = ['month' => '1', 'day' => '20'];
+	public array $end = ['month' => '1', 'day' => '20'];
 
 	/**
 	 * Determine if given date matches Capricorn

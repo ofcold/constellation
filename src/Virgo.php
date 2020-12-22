@@ -9,26 +9,26 @@ class Virgo extends AbstractConstellation
 	 *
 	 * @var string
 	 */
-	public $name = 'virgo';
+	public string $name = 'virgo';
 
 	/**
 	 * HTML code of zodiac sign
 	 *
 	 * @var string
 	 */
-	public $html = '&#9805;';
+	public string $html = '&#9805;';
 
 	/**
 	 * Start day of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $start = ['month' => '8', 'day' => '24'];
+	public array $start = ['month' => '8', 'day' => '24'];
 
 	/**
 	 * End day of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $end = ['month' => '9', 'day' => '23'];
+	public array $end = ['month' => '9', 'day' => '23'];
 }

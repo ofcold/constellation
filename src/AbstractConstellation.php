@@ -18,85 +18,21 @@ abstract class AbstractConstellation
 	 *
 	 * @var string
 	 */
-	public $html;
+	public string $html;
 
 	/**
 	 * Start of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $start;
+	public array $start;
 
 	/**
 	 * End of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $end;
-
-	/**
-	 * Constellations（Data from Wikipedia https://zh.wikipedia.org/wiki/%E8%A5%BF%E6%B4%8B%E5%8D%A0%E6%98%9F%E8%A1%93）
-	 *
-	 * @var  array
-	 */
-	protected $locales = [
-		'zh-CN'	=> [
-			'Aquarius' => '水瓶座',
-			'Pisces' => '双鱼座',
-			'Aries' => '白羊座',
-			'Taurus' => '金牛座',
-			'Gemini' => '双子座',
-			'Cancer' => '巨蟹座',
-			'Leo' => '狮子座',
-			'Virgo' => '处女座',
-			'Libra' => '天秤座',
-			'Scorpio' => '天蝎座',
-			'Sagittarius' => '射手座',
-			'Capricorn' => '魔羯座',
-		],
-		'en'	=> [
-			'Aquarius' => 'Aquarius',
-			'Pisces' => 'Pisces',
-			'Aries' => 'Aries',
-			'Taurus' => 'Taurus',
-			'Gemini' => 'Gemini',
-			'Cancer' => 'Cancer',
-			'Leo' => 'Leo',
-			'Virgo' => 'Virgo',
-			'Libra' => 'Libra',
-			'Scorpio' => 'Scorpio',
-			'Sagittarius' => 'Sagittarius',
-			'Capricorn' => 'Capricorn',
-		],
-		'de'	=> [
-			'aries' => 'Widder',
-			'taurus' => 'Stier',
-			'gemini' => 'Zwillinge',
-			'cancer' => 'Krebs',
-			'leo' => 'Löwe',
-			'virgo' => 'Jungfrau',
-			'libra' => 'Waage',
-			'scorpio' => 'Skorpion',
-			'sagittarius' => 'Schütze',
-			'capricorn' => 'Steinbock',
-			'aquarius' => 'Wassermann',
-			'pisces' => 'Fische'
-		],
-		'ru'	=> [
-			'aries' => 'Овен',
-			'taurus' => 'Телец',
-			'gemini' => 'Близнецы',
-			'cancer' => 'Рак',
-			'leo' => 'Лев',
-			'virgo' => 'Дева',
-			'libra' => 'Весы',
-			'scorpio' => 'Скорпион',
-			'sagittarius' => 'Стрелец',
-			'capricorn' => 'Козерог',
-			'aquarius' => 'Водолей',
-			'pisces' => 'Рыбы'
-		]
-	];
+	public array $end;
 
 	/**
 	 * Determine if given date matches the current zodiac sign
@@ -129,25 +65,16 @@ abstract class AbstractConstellation
 	}
 
 	/**
-	 * Get localized name of zodiac sign
-	 *
-	 * @param  string $locale
-	 *
-	 * @return string|null
-	 */
-	public function localized(string $locale = 'zh-CN'): ?string
-	{
-		$constellations = $this->locales[$locale] ?? $this->locales['zh-CN'];
-
-		return $constellations[ucfirst($this->name())] ?? ucfirst($this->name());
-	}
-
-	/**
 	 * Get name of zodiac
 	 *
 	 * @return string
 	 */
 	public function name(): string
+	{
+		return ucfirst($this->name);
+	}
+
+	public function slug(): string
 	{
 		return $this->name;
 	}

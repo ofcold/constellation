@@ -7,20 +7,40 @@ use Carbon\Carbon;
 class CalculatorConstellation
 {
 	/**
+	 * Returns array of all constellation classnames
+	 *
+	 * @var array
+	 */
+	protected array $constellations = [
+		Aquarius::class,
+		Aries::class,
+		Cancer::class,
+		Capricorn::class,
+		Gemini::class,
+		Leo::class,
+		Libra::class,
+		Pisces::class,
+		Sagittarius::class,
+		Scorpio::class,
+		Taurus::class,
+		Virgo::class,
+	];
+
+	/**
 	 * Key constellation name for given date
 	 *
 	 * @param  mixed $date
 	 *
-	 * @return void|string
+	 * @return null|AbstractConstellation
 	 */
-	public static function make($date)
+	public static function make(mixed $date)
 	{
 		$date = static::getDate($date);
 
-		foreach (static::constellationClassnames() as $classname) {
-			$constellation = new $classname;
-			if ($constellation->match($date)) {
-				return $constellation;
+		foreach (static::$constellations as $classname) {
+			$instance = new $classname;
+			if ($instance->match($date)) {
+				return $instance;
 			}
 		}
 	}
@@ -29,46 +49,18 @@ class CalculatorConstellation
 	 * Reads mixed date into Carbon object
 	 *
 	 * @param mixed $date
-	 */
-	protected static function getDate($date)
-	{
-		switch (true) {
-			case is_string($date):
-				return Carbon::parse($date);
-
-			case is_int($date):
-				return Carbon::createFromTimestamp($date);
-
-			case is_a($date, 'DateTime'):
-				return Carbon::instance($date);
-
-			default:
-				throw new \RuntimeException(
-					"Unable to read date ({$date})"
-				);
-		}
-	}
-
-	/**
-	 * Returns array of all constellation classnames
 	 *
-	 * @return array
+	 * @return Carbon
+	 *
+	 * @throws \RuntimeException
 	 */
-	protected static function constellationClassnames(): array
+	protected static function getDate(mixed $date): Carbon
 	{
-		return [
-			Aquarius::class,
-			Aries::class,
-			Cancer::class,
-			Capricorn::class,
-			Gemini::class,
-			Leo::class,
-			Libra::class,
-			Pisces::class,
-			Sagittarius::class,
-			Scorpio::class,
-			Taurus::class,
-			Virgo::class,
-		];
+		return match(true) {
+			is_string($date) => Carbon::parse($date),
+			is_int($date) => Carbon::createFromTimestamp($date),
+			is_a($date, 'DateTime') => Carbon::instance($date),
+			default => throw new \RuntimeException("Unable to read date ({$date})")
+		};
 	}
 }

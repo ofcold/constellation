@@ -9,26 +9,26 @@ class Aries extends AbstractConstellation
 	 *
 	 * @var string
 	 */
-	public $name = 'aries';
+	public string $name = 'aries';
 
 	/**
 	 * HTML code of zodiac sign
 	 *
 	 * @var string
 	 */
-	public $html = '&#9800;';
+	public string $html = '&#9800;';
 
 	/**
 	 * Start day of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $start = ['month' => '3', 'day' => '21'];
+	public array $start = ['month' => '3', 'day' => '21'];
 
 	/**
 	 * End day of zodiac sign
 	 *
 	 * @var array
 	 */
-	public $end = ['month' => '4', 'day' => '20'];
+	public array $end = ['month' => '4', 'day' => '20'];
 }
