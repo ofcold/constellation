@@ -5,5 +5,21 @@ use Ofcold\Constellation\CalculatorConstellation;
 
 require __DIR__ . '/vendor/autoload.php';
 
-var_dump(CalculatorConstellation::make('1992-01-02'));
-var_dump(CalculatorConstellation::make('1995-05-20'));
+$collect = [
+    CalculatorConstellation::make('1992-01-02'),
+    CalculatorConstellation::make('1992-02-02'),
+    CalculatorConstellation::make('1992-03-02'),
+    CalculatorConstellation::make('1992-04-02'),
+    CalculatorConstellation::make('1995-05-20'),
+    CalculatorConstellation::make('1995-06-20'),
+    CalculatorConstellation::make('1995-07-20'),
+    CalculatorConstellation::make('1995-08-20'),
+    CalculatorConstellation::make('1995-09-20'),
+    CalculatorConstellation::make('1995-10-20'),
+    CalculatorConstellation::make('1995-11-20'),
+    CalculatorConstellation::make('1995-12-20'),
+];
+
+foreach ($collect as $entry) {
+    echo $entry->name() . "\r\n";
+}
