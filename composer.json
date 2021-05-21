@@ -11,7 +11,7 @@
 	],
 	"require": {
 		"php": "^8.0",
-		"nesbot/carbon": "~2.0"
+		"nesbot/carbon": "4.x-dev"
 	},
 	"autoload": {
 		"psr-4": {
@@ -19,8 +19,7 @@
 		}
 	},
 	"require-dev": {
-		"mockery/mockery": "^1.3",
-		"phpunit/phpunit": "^9.0"
+		"mockery/mockery": "^1.3"
 	},
 	"config": {
 		"sort-packages": true
