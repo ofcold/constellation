@@ -1,6 +1,9 @@
 #!/usr/bin/env php
 <?php
 
+use Ofcold\Constellation\CalculatorConstellation;
+
 require __DIR__ . '/vendor/autoload.php';
 
-var_dump(CalculatorConstellation::make('1992-03-27'));
+var_dump(CalculatorConstellation::make('1992-01-02'));
+var_dump(CalculatorConstellation::make('1995-05-20'));
