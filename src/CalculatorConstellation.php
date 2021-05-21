@@ -11,7 +11,7 @@ class CalculatorConstellation
 	 *
 	 * @var array
 	 */
-	protected array $constellations = [
+	protected static array $constellations = [
 		Aquarius::class,
 		Aries::class,
 		Cancer::class,

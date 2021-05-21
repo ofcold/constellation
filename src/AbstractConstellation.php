@@ -11,7 +11,7 @@ abstract class AbstractConstellation
 	 *
 	 * @var string
 	 */
-	public $name;
+	public string $name;
 
 	/**
 	 * HTML code of zodiac sign
